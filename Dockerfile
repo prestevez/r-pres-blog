@@ -7,7 +7,8 @@ RUN install2.r --error \
     ## Install Hugo
     && R -e "options(blogdown.hugo.dir = '/bin'); blogdown::install_hugo()" 
 
+# Download and install Go
 RUN wget -c https://golang.org/dl/go1.15.2.linux-amd64.tar.gz \
-    && tar -C /usr/loval -xvzf go1.15.2.linux-amd64.tar.gz
+    && tar -C /usr/local -xvzf go1.15.2.linux-amd64.tar.gz
 
 ENV PATH="$PATH:/usr/local/go/bin"
