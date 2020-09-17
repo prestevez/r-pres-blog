@@ -11,4 +11,7 @@ RUN install2.r --error \
 RUN wget -c https://golang.org/dl/go1.15.2.linux-amd64.tar.gz \
     && tar -C /usr/local -xvzf go1.15.2.linux-amd64.tar.gz
 
-ENV PATH="$PATH:/usr/local/go/bin"
+# Place go binary in PATH where it is discoverable by R
+#ENV PATH="$PATH:/usr/local/go/bin" # <- This doesn't work
+RUN ln /usr/local/go/bin/go /usr/local/bin/go
+
